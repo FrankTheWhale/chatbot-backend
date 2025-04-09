@@ -24,7 +24,6 @@ app.post('/api/chat', async (req, res) => {
       {
         model: 'gpt-3.5-turbo',
         messages: [
-          // Du sendest den Prompt als Teil der `message` vom Frontend
           { role: 'user', content: message }
         ]
       },
@@ -42,6 +41,11 @@ app.post('/api/chat', async (req, res) => {
     console.error('❌ Fehler bei OpenAI:', error.response?.data || error.message);
     res.status(500).json({ error: 'Serverfehler bei OpenAI-Anfrage.' });
   }
+});
+
+// 🟢 Test-Route für GET /
+app.get('/', (req, res) => {
+  res.send('✅ Backend läuft erfolgreich auf Render.');
 });
 
 // ✅ Server starten

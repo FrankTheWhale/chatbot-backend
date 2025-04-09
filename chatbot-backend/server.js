@@ -6,8 +6,9 @@ require('dotenv').config();
 const app = express();
 const port = 3001;
 
-// ✅ Nur Requests von deiner eigenen Seite zulassen
-app.use(cors({ origin: process.env.CORS_ORIGIN }));
+// ⚠️ CORS vorübergehend komplett offen (für Testzwecke)
+app.use(cors());
+
 app.use(express.json());
 
 // 💬 POST-Route für Chat-Anfrage
